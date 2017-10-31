@@ -18,7 +18,7 @@ public class Mainframe extends JFrame{
     private  JMenu jmAbout = new JMenu("About");
     private  JMenuItem jmItemExit = new JMenuItem("Exit");
     private  JMenuItem jmItemLoto = new JMenuItem("Loto");
-    private  JMenuItem jmItemStyle = new JMenuItem("Style");
+
     private  JLabel Jlb[] = new JLabel[6];
     private  JDesktopPane jdp = new JDesktopPane();
     private JInternalFrame jif = new JInternalFrame();
@@ -29,18 +29,28 @@ public class Mainframe extends JFrame{
     private Random rnd = new Random(System.currentTimeMillis());
     private  int data[] = new int[6];
     private Container cp;
-
+    private  Loginframe log;
+//----------------------------------------------font-----style
+    private  JMenuItem jmItemStyle = new JMenuItem("Style");
+    private  JLabel Jlb1= new JLabel("family");
+    private  JLabel Jlb2 = new JLabel("style");
+    private  JLabel Jlb3 = new JLabel("font size");
     private JPanel jPanel1 = new JPanel(new GridLayout(2,3,3,3));
     String[]    Option = {"PLAIN","BOLD","ITALIC","BOLD+ITALIC"};
     JComboBox jcb = new JComboBox(Option);
-    private JTextField jtfF = new JTextField("");
+    private JTextField jtfF = new JTextField("Source Sans pro");
     private JTextField jtfFont = new JTextField("24");
+//----------------------------------------------font-----style
+    //------------------internal frame---add---gategory---------------------------
 
 
+
+
+    //------------------internal frame---add---gategory---------------------------
     private boolean b;
 
-    public Mainframe(){
-
+    public Mainframe(Loginframe loginframe){
+        log= loginframe;
         init();
     }
     private void init(){
@@ -49,7 +59,7 @@ public class Mainframe extends JFrame{
             @Override
             public void windowClosing(WindowEvent e) {
                 Mainframe.this.setVisible(false);
-              //  log.setVisible(true);
+                log.setVisible(true);
             }
         });
         this.setBounds(ScreenW/2-frmW/2,ScreenH/2-frmH/2,frmW,frmH);
@@ -75,6 +85,9 @@ public class Mainframe extends JFrame{
         Jp1.add(Jbtn2);
         jif.setBounds(0,0,300,120);
 
+        jPanel1.add(Jlb1);
+        jPanel1.add(Jlb2);
+        jPanel1.add(Jlb3);
         jPanel1.add(jtfF);
         jPanel1.add(jcb);
         jPanel1.add(jtfFont);
@@ -117,8 +130,21 @@ Jp.removeAll();
         jmItemStyle.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-JOptionPane.showInputDialog(Mainframe.this.jPanel1,jcb,"font Setting",JOptionPane.OK_CANCEL_OPTION);
-int Style=0;
+int result = JOptionPane.showConfirmDialog(Mainframe.this,jPanel1,"font Setting",JOptionPane.OK_CANCEL_OPTION);
+int FontStyle=0;
+switch(jcb.getSelectedIndex()){
+    case 0:
+        FontStyle=Font.PLAIN;
+    case 1:
+        FontStyle=Font.BOLD;
+    case 2:
+        FontStyle=Font.ITALIC;
+    case 3:
+        FontStyle=Font.BOLD+Font.ITALIC;
+}
+if(result==JOptionPane.OK_OPTION){
+                    UIManager.put("Menu.font",new Font(jtfF.getText(),FontStyle,Integer.parseInt(jtfFont.getText())));
+                }
 
 
             }
