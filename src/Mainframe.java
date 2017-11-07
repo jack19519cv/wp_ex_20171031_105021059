@@ -48,7 +48,7 @@ public class Mainframe extends JFrame{
     private JPanel jPanel1 = new JPanel(new GridLayout(2,3,3,3));
     String[]    Option = {"PLAIN","BOLD","ITALIC","BOLD+ITALIC"};
     JComboBox jcb = new JComboBox(Option);
-    private JTextField jtfF = new JTextField("Source Sans pro");
+    private JTextField jtfF = new JTextField("");
     private JTextField jtfFont = new JTextField("24");
 //----------------------------------------------font-----style
     //------------------internal frame---add---gategory---------------------------
@@ -106,8 +106,8 @@ private Container  cpga = new Container();
         jmSet.add(jmItemStyle);
         jmItemExit.setAccelerator(KeyStroke.getKeyStroke('X',Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
         jmItemLoto.setAccelerator(KeyStroke.getKeyStroke('C',Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-        jmItemStyle.setAccelerator(KeyStroke.getKeyStroke('f',Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-        jmige.setAccelerator(KeyStroke.getKeyStroke('g',Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+        jmItemStyle.setAccelerator(KeyStroke.getKeyStroke('F',Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+        jmige.setAccelerator(KeyStroke.getKeyStroke('G',Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
 
         cp = jif.getContentPane();
         cpga = jifge.getContentPane();
