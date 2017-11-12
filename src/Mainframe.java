@@ -114,7 +114,7 @@ private Container  cpga = new Container();
         cp.setLayout(new BorderLayout(5,5));
         cpga.setLayout(new BorderLayout(5,5));
         cpga.add(Jta);
-        cp.add(Jp,BorderLayout.CENTER);
+        cp  .add(Jp,BorderLayout.CENTER);
         cp.add(Jp1,BorderLayout.SOUTH);
      Jp1.add(Jbtn1);
         Jp1.add(Jbtn2);
@@ -154,6 +154,7 @@ private Container  cpga = new Container();
                         BufferedReader br = new BufferedReader(new FileReader(infile));
                         String str ="";
                         while((str =br.readLine())!=null){
+
                            Jta.append(str+"\n");
                         }
                     }catch (Exception ioe){
